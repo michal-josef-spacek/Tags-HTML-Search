@@ -26,6 +26,21 @@ sub new {
 	# Process params.
 	set_params($self, @{$object_params_ar});
 
+	# Object.
+	return $self;
+}
+
+sub _cleanup {
+	my $self = shift;
+
+	delete $self->{'_tags_html_form'};
+
+	return;
+}
+
+sub _init {
+	my $self = shift;
+
 	$self->{'_tags_html_form'} = Tags::HTML::Form->new(
 		'css' => $self->{'css'},
 		'submit' => Data::HTML::Button->new(
@@ -38,8 +53,7 @@ sub new {
 		'tags' => $self->{'tags'},
 	);
 
-	# Object.
-	return $self;
+	return;
 }
 
 sub _process {
