@@ -32,6 +32,7 @@ sub new {
 			'data' => [
 				['d', 'Search'],
 			],
+			'data_type' => 'tags',
 			'type' => 'submit',
 		),
 		'tags' => $self->{'tags'},
