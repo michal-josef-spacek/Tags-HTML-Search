@@ -5,6 +5,8 @@ SYNOPSIS
      use Tags::HTML::Search;
 
      my $obj = Tags::HTML::Search->new(%params);
+     $obj->cleanup;
+     $obj->init;
      $obj->process;
      $obj->process_css;
 
@@ -105,7 +107,7 @@ AUTHOR
     <http://skim.cz>
 
 LICENSE AND COPYRIGHT
-    © 2022 Michal Josef Špaček
+    © 2022-2023 Michal Josef Špaček
 
     BSD 2-Clause License
 
