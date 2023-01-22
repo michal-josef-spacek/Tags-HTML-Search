@@ -6,6 +6,7 @@ use warnings;
 
 use Class::Utils qw(set_params split_params);
 use Data::HTML::Button;
+use Data::HTML::Form;
 use Data::HTML::Form::Input;
 use Tags::HTML::Form;
 
@@ -17,8 +18,11 @@ sub new {
 
 	# Create object.
 	my ($object_params_ar, $other_params_ar) = split_params(
-		['search_type'], @params);
+		['action', 'search_type'], @params);
 	my $self = $class->SUPER::new(@{$other_params_ar});
+
+	# Form action.
+	$self->{'action'} = undef;
 
 	# Search type.
 	$self->{'search_type'} = 'text';
@@ -43,6 +47,10 @@ sub _init {
 
 	$self->{'_tags_html_form'} = Tags::HTML::Form->new(
 		'css' => $self->{'css'},
+		'form' => Data::HTML::Form->new(
+			'action' => $self->{'action'},
+			'css_class' => 'form',
+		),
 		'submit' => Data::HTML::Button->new(
 			'data' => [
 				['d', 'Search'],
@@ -92,6 +100,8 @@ Tags::HTML::Search - Tags helper for gradient evaluation.
  use Tags::HTML::Search;
 
  my $obj = Tags::HTML::Search->new(%params);
+ $obj->cleanup;
+ $obj->init;
  $obj->process;
  $obj->process_css;
 
