@@ -24,6 +24,12 @@ METHODS
 
             Default value is undef.
 
+    *       "search_button_text"
+
+            Search buttom text.
+
+            Default value is 'Search'.
+
     *       "search_type"
 
             Search type.

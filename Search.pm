@@ -19,11 +19,14 @@ sub new {
 
 	# Create object.
 	my ($object_params_ar, $other_params_ar) = split_params(
-		['action', 'search_type'], @params);
+		['action', 'search_button_text', 'search_type'], @params);
 	my $self = $class->SUPER::new(@{$other_params_ar});
 
 	# Form action.
 	$self->{'action'} = undef;
+
+	# Search button text.
+	$self->{'search_button_text'} = 'Search',
 
 	# Search type.
 	$self->{'search_type'} = 'text';
@@ -58,7 +61,7 @@ sub _init {
 		),
 		'submit' => Data::HTML::Button->new(
 			'data' => [
-				['d', 'Search'],
+				['d', $self->{'search_button_text'}],
 			],
 			'data_type' => 'tags',
 			'type' => 'submit',
@@ -130,6 +133,12 @@ Constructor.
 It's required.
 
 Default value is undef.
+
+=item * C<search_button_text>
+
+Search buttom text.
+
+Default value is 'Search'.
 
 =item * C<search_type>
 
