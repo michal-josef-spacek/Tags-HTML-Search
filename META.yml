@@ -32,6 +32,7 @@ requires:
   Data::HTML::Button: 0
   Data::HTML::Form::Input: 0
   Tags::HTML: 0
+  Tags::HTML::Container: 0
   Tags::HTML::Form: 0
   perl: 5.8.0
 resources:

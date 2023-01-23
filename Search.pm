@@ -9,6 +9,7 @@ use Data::HTML::Button;
 use Data::HTML::Form;
 use Data::HTML::Form::Input;
 use Tags::HTML::Form;
+use Tags::HTML::Container;
 
 our $VERSION = 0.01;
 
@@ -45,6 +46,10 @@ sub _cleanup {
 sub _init {
 	my $self = shift;
 
+	$self->{'_tags_html_container'} = Tags::HTML::Container->new(
+		'css' => $self->{'css'},
+		'tags' => $self->{'tags'},
+	);
 	$self->{'_tags_html_form'} = Tags::HTML::Form->new(
 		'css' => $self->{'css'},
 		'form' => Data::HTML::Form->new(
@@ -67,10 +72,12 @@ sub _init {
 sub _process {
 	my $self = shift;
 
-	my $search = Data::HTML::Form::Input->new(
-		'type' => $self->{'search_type'},
-	);
-	$self->{'_tags_html_form'}->process($search);
+	$self->{'_tags_html_container'}->process(sub {
+		my $search = Data::HTML::Form::Input->new(
+			'type' => $self->{'search_type'},
+		);
+		$self->{'_tags_html_form'}->process($search);
+	});
 
 	return;
 }
@@ -78,6 +85,7 @@ sub _process {
 sub _process_css {
 	my $self = shift;
 
+	$self->{'_tags_html_container'}->process_css;
 	$self->{'_tags_html_form'}->process_css;
 
 	return;
