@@ -77,6 +77,7 @@ sub _process {
 
 	$self->{'_tags_html_container'}->process(sub {
 		my $search = Data::HTML::Form::Input->new(
+			'autofocus' => 1,
 			'type' => $self->{'search_type'},
 		);
 		$self->{'_tags_html_form'}->process($search);
