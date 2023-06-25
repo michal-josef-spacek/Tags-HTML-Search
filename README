@@ -73,6 +73,12 @@ ERRORS
              Parameter 'css' must be a 'CSS::Struct::Output::*' class.
              Parameter 'tags' must be a 'Tags::Output::*' class.
 
+     process():
+             You need to init instance.
+
+     process_css():
+             You need to init instance.
+
 EXAMPLE
      use strict;
      use warnings;
@@ -132,8 +138,8 @@ EXAMPLE
      # </div>
 
 DEPENDENCIES
-    Class::Utils, Data::HTML::Button, Data::HTML::Form::Input, Tags::HTML,
-    Tags::HTML::Container, Tags::HTML::Form.
+    Class::Utils, Data::HTML::Button, Data::HTML::Form::Input, Error::Pure,
+    Tags::HTML, Tags::HTML::Container, Tags::HTML::Form.
 
 SEE ALSO
     Tags::HTML::Stars

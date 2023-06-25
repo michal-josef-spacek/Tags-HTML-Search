@@ -32,6 +32,7 @@ requires:
   Data::HTML::Button: 0
   Data::HTML::Form: 0
   Data::HTML::Form::Input: 0
+  Error::Pure: 0
   Tags::HTML: 0
   Tags::HTML::Container: 0
   Tags::HTML::Form: 0

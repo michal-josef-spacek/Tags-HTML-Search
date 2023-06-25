@@ -8,6 +8,7 @@ use Class::Utils qw(set_params split_params);
 use Data::HTML::Button;
 use Data::HTML::Form;
 use Data::HTML::Form::Input;
+use Error::Pure qw(err);
 use Tags::HTML::Container;
 use Tags::HTML::Form;
 
@@ -81,6 +82,10 @@ sub _init {
 sub _process {
 	my $self = shift;
 
+	if (! exists $self->{'_tags_html_container'}) {
+		err "You need to init instance.";
+	}
+
 	$self->{'_tags_html_container'}->process(sub {
 		my $search = Data::HTML::Form::Input->new(
 			'autofocus' => 1,
@@ -94,6 +99,10 @@ sub _process {
 
 sub _process_css {
 	my $self = shift;
+
+	if (! exists $self->{'_tags_html_container'}) {
+		err "You need to init instance.";
+	}
 
 	$self->{'_tags_html_container'}->process_css;
 	if ($self->{'css_form_default'}) {
@@ -201,6 +210,12 @@ Returns undef.
          Parameter 'css' must be a 'CSS::Struct::Output::*' class.
          Parameter 'tags' must be a 'Tags::Output::*' class.
 
+ process():
+         You need to init instance.
+
+ process_css():
+         You need to init instance.
+
 =head1 EXAMPLE
 
 =for comment filename=simple_search.pl
@@ -267,6 +282,7 @@ Returns undef.
 L<Class::Utils>,
 L<Data::HTML::Button>,
 L<Data::HTML::Form::Input>,
+L<Error::Pure>,
 L<Tags::HTML>,
 L<Tags::HTML::Container>,
 L<Tags::HTML::Form>.

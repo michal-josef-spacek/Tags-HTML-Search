@@ -22,6 +22,7 @@ requires 'Class::Utils' => 0;
 requires 'Data::HTML::Button' => 0;
 requires 'Data::HTML::Form' => 0;
 requires 'Data::HTML::Form::Input' => 0;
+requires 'Error::Pure' => 0;
 requires 'Tags::HTML' => 0;
 requires 'Tags::HTML::Container' => 0;
 requires 'Tags::HTML::Form' => 0;
