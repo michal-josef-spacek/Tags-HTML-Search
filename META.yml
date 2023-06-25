@@ -30,6 +30,7 @@ no_index:
 requires:
   Class::Utils: 0
   Data::HTML::Button: 0
+  Data::HTML::Form: 0
   Data::HTML::Form::Input: 0
   Tags::HTML: 0
   Tags::HTML::Container: 0
