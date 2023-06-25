@@ -48,6 +48,7 @@ sub new {
 sub _cleanup {
 	my $self = shift;
 
+	delete $self->{'_tags_html_container'};
 	delete $self->{'_tags_html_form'};
 
 	return;
