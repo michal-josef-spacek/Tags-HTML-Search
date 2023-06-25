@@ -104,7 +104,7 @@ EXAMPLE
 
 DEPENDENCIES
     Class::Utils, Data::HTML::Button, Data::HTML::Form::Input, Tags::HTML,
-    Tags::HTML::Form.
+    Tags::HTML::Container, Tags::HTML::Form.
 
 SEE ALSO
     Tags::HTML::Stars
