@@ -24,6 +24,12 @@ METHODS
 
             Default value is undef.
 
+    *       "css_form_default"
+
+            Flag that (un)set Tags::HTML::Form CSS style.
+
+            Default value is 0.
+
     *       "search_button_text"
 
             Search buttom text.

@@ -19,11 +19,14 @@ sub new {
 
 	# Create object.
 	my ($object_params_ar, $other_params_ar) = split_params(
-		['action', 'search_button_text', 'search_type'], @params);
+		['action', 'css_form_default', 'search_button_text', 'search_type'], @params);
 	my $self = $class->SUPER::new(@{$other_params_ar});
 
 	# Form action.
 	$self->{'action'} = undef;
+
+	# CSS form default.
+	$self->{'css_form_default'} = 0,
 
 	# Search button text.
 	$self->{'search_button_text'} = 'Search',
@@ -33,6 +36,9 @@ sub new {
 
 	# Process params.
 	set_params($self, @{$object_params_ar});
+
+	# Form name.
+	$self->{'_form_name'} = 'form';
 
 	# Object.
 	return $self;
@@ -57,7 +63,7 @@ sub _init {
 		'css' => $self->{'css'},
 		'form' => Data::HTML::Form->new(
 			'action' => $self->{'action'},
-			'css_class' => 'form',
+			'css_class' => $self->{'_form_name'},
 		),
 		'submit' => Data::HTML::Button->new(
 			'data' => [
@@ -90,7 +96,15 @@ sub _process_css {
 	my $self = shift;
 
 	$self->{'_tags_html_container'}->process_css;
-	$self->{'_tags_html_form'}->process_css;
+	if ($self->{'css_form_default'}) {
+		$self->{'_tags_html_form'}->process_css;
+	} else {
+		$self->{'css'}->put(
+			['s', '.'.$self->{'_form_name'}.' input'],
+			['d', 'border-radius', '5px'],
+			['e'],
+		);
+	}
 
 	return;
 }
@@ -134,6 +148,12 @@ Constructor.
 It's required.
 
 Default value is undef.
+
+=item * C<css_form_default>
+
+Flag that (un)set Tags::HTML::Form CSS style.
+
+Default value is 0.
 
 =item * C<search_button_text>
 
