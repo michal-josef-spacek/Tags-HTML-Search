@@ -8,8 +8,8 @@ use Class::Utils qw(set_params split_params);
 use Data::HTML::Button;
 use Data::HTML::Form;
 use Data::HTML::Form::Input;
-use Tags::HTML::Form;
 use Tags::HTML::Container;
+use Tags::HTML::Form;
 
 our $VERSION = 0.01;
 
