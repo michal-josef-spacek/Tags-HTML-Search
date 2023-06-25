@@ -187,11 +187,27 @@ Default value is undef.
 
 =back
 
+=head2 C<cleanup>
+
+ $obj->cleanup;
+
+Process cleanup after page run.
+
+Returns undef.
+
+=head2 C<init>
+
+ $obj->init;
+
+Process initialization before page run.
+
+Returns undef.
+
 =head2 C<process>
 
  $obj->process;
 
-Process Tags structure for .
+Process Tags structure for output.
 
 Returns undef.
 

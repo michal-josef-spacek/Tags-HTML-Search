@@ -52,10 +52,24 @@ METHODS
 
             Default value is undef.
 
+  "cleanup"
+     $obj->cleanup;
+
+    Process cleanup after page run.
+
+    Returns undef.
+
+  "init"
+     $obj->init;
+
+    Process initialization before page run.
+
+    Returns undef.
+
   "process"
      $obj->process;
 
-    Process Tags structure for .
+    Process Tags structure for output.
 
     Returns undef.
 
